@@ -1,0 +1,234 @@
+[
+  {
+    "id": "1",
+    "name": "TechNova Solutions",
+    "logo": "https://example.com/logos/technova.png",
+    "location": "San Francisco, CA",
+    "website": "https://technova.com",
+    "industry": "Software Development",
+    "jobs": [
+      {
+        "id": "job-001",
+        "title": "Frontend Developer",
+        "bannerImage": "https://example.com/banners/frontend.png",
+        "location": "Remote",
+        "salary": "$80,000 - $100,000",
+        "jobType": "Full-time",
+        "description": "We are looking for a skilled Frontend Developer to build and improve our client-side applications.",
+        "requirements": [
+          "Proficient in HTML, CSS, and JavaScript",
+          "Experience with React or Vue.js",
+          "Familiarity with RESTful APIs",
+          "Good understanding of responsive design",
+          "Excellent problem-solving skills"
+        ]
+      },
+      {
+        "id": "job-002",
+        "title": "UI/UX Designer",
+        "bannerImage": "https://example.com/banners/uiux.png",
+        "location": "San Francisco, CA",
+        "salary": "$70,000 - $90,000",
+        "jobType": "Part-time",
+        "description": "Join our creative team to design user-friendly interfaces and intuitive user experiences.",
+        "requirements": [
+          "Proficiency in Figma or Adobe XD",
+          "Strong portfolio of UI/UX designs",
+          "Understanding of design systems",
+          "Collaboration with product and engineering teams",
+          "Attention to detail"
+        ]
+      },
+      {
+        "id": "job-005",
+        "title": "QA Engineer",
+        "bannerImage": "https://example.com/banners/qa.png",
+        "location": "San Francisco, CA",
+        "salary": "$60,000 - $85,000",
+        "jobType": "Full-time",
+        "description": "Ensure software quality through testing and process improvements.",
+        "requirements": [
+          "Experience with automated and manual testing",
+          "Knowledge of testing tools (Selenium, JUnit)",
+          "Good analytical and documentation skills",
+          "Familiar with agile development",
+          "Attention to detail"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "name": "GreenStack Inc.",
+    "logo": "https://example.com/logos/greenstack.png",
+    "location": "Austin, TX",
+    "website": "https://greenstack.io",
+    "industry": "Cloud Infrastructure",
+    "jobs": [
+      {
+        "id": "job-003",
+        "title": "DevOps Engineer",
+        "bannerImage": "https://example.com/banners/devops.png",
+        "location": "Austin, TX",
+        "salary": "$100,000 - $130,000",
+        "jobType": "Full-time",
+        "description": "We’re seeking a DevOps Engineer to streamline deployment processes and manage cloud infrastructure.",
+        "requirements": [
+          "Experience with AWS, Azure or GCP",
+          "Knowledge of CI/CD tools like Jenkins",
+          "Strong scripting skills in Bash or Python",
+          "Containerization with Docker/Kubernetes",
+          "System monitoring and automation"
+        ]
+      },
+      {
+        "id": "job-004",
+        "title": "Backend Developer",
+        "bannerImage": "https://example.com/banners/backend.png",
+        "location": "Remote",
+        "salary": "$90,000 - $110,000",
+        "jobType": "Full-time",
+        "description": "As a Backend Developer, you will build scalable APIs and data processing systems.",
+        "requirements": [
+          "Proficiency in Node.js or Python",
+          "Experience with databases (PostgreSQL, MongoDB)",
+          "REST and GraphQL API development",
+          "Writing clean, testable code",
+          "Understanding of microservices architecture"
+        ]
+      },
+      {
+        "id": "job-006",
+        "title": "Site Reliability Engineer",
+        "bannerImage": "https://example.com/banners/sre.png",
+        "location": "Austin, TX",
+        "salary": "$110,000 - $140,000",
+        "jobType": "Full-time",
+        "description": "Improve reliability and performance of our infrastructure.",
+        "requirements": [
+          "Experience with SRE practices",
+          "Monitoring and observability tools",
+          "Coding/scripting for automation",
+          "Incident management and RCA",
+          "Strong cloud expertise"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "name": "CloudWorks Ltd.",
+    "logo": "https://example.com/logos/cloudworks.png",
+    "location": "Seattle, WA",
+    "website": "https://cloudworks.com",
+    "industry": "Cloud SaaS",
+    "jobs": [
+      {
+        "id": "job-007",
+        "title": "Cloud Architect",
+        "bannerImage": "https://example.com/banners/architect.png",
+        "location": "Remote",
+        "salary": "$120,000 - $150,000",
+        "jobType": "Full-time",
+        "description": "Architect and design cloud solutions for enterprise clients.",
+        "requirements": [
+          "Expertise in AWS or Azure",
+          "Knowledge of multi-cloud setups",
+          "Strong architecture principles",
+          "Experience with IaaS and PaaS",
+          "Leadership and mentoring experience"
+        ]
+      },
+      {
+        "id": "job-008",
+        "title": "Technical Support Engineer",
+        "bannerImage": "https://example.com/banners/support.png",
+        "location": "Seattle, WA",
+        "salary": "$60,000 - $80,000",
+        "jobType": "Full-time",
+        "description": "Help customers troubleshoot and resolve issues quickly.",
+        "requirements": [
+          "Great communication skills",
+          "Troubleshooting experience",
+          "Basic networking and cloud knowledge",
+          "Customer-first mindset",
+          "Documentation abilities"
+        ]
+      },
+      {
+        "id": "job-009",
+        "title": "Product Manager",
+        "bannerImage": "https://example.com/banners/pm.png",
+        "location": "Seattle, WA",
+        "salary": "$100,000 - $130,000",
+        "jobType": "Full-time",
+        "description": "Lead product vision and roadmap planning across teams.",
+        "requirements": [
+          "Strong product thinking",
+          "Experience in SaaS products",
+          "Collaboration with cross-functional teams",
+          "Agile product management",
+          "User research and feedback integration"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "name": "NextGen AI",
+    "logo": "https://example.com/logos/nextgenai.png",
+    "location": "Boston, MA",
+    "website": "https://nextgenai.io",
+    "industry": "Artificial Intelligence",
+    "jobs": [
+      {
+        "id": "job-010",
+        "title": "Machine Learning Engineer",
+        "bannerImage": "https://example.com/banners/ml.png",
+        "location": "Boston, MA",
+        "salary": "$110,000 - $140,000",
+        "jobType": "Full-time",
+        "description": "Develop ML models for NLP and computer vision tasks.",
+        "requirements": [
+          "Proficiency in Python and ML libraries",
+          "Model training and evaluation",
+          "Data preprocessing and feature engineering",
+          "Familiarity with TensorFlow or PyTorch",
+          "Deploying models to production"
+        ]
+      },
+      {
+        "id": "job-011",
+        "title": "AI Research Scientist",
+        "bannerImage": "https://example.com/banners/ai.png",
+        "location": "Remote",
+        "salary": "$130,000 - $160,000",
+        "jobType": "Full-time",
+        "description": "Work on cutting-edge AI research and prototypes.",
+        "requirements": [
+          "PhD in Computer Science or related field",
+          "Strong publication record",
+          "Research in deep learning, NLP, or RL",
+          "Collaboration with engineering teams",
+          "Ability to present and write papers"
+        ]
+      },
+      {
+        "id": "job-012",
+        "title": "Data Engineer",
+        "bannerImage": "https://example.com/banners/data.png",
+        "location": "Boston, MA",
+        "salary": "$95,000 - $115,000",
+        "jobType": "Full-time",
+        "description": "Build scalable data pipelines and data warehouse solutions.",
+        "requirements": [
+          "Experience with Spark, Kafka, Airflow",
+          "Strong SQL and ETL skills",
+          "Cloud data platforms (BigQuery, Redshift)",
+          "Data modeling and warehousing",
+          "Programming in Python or Scala"
+        ]
+      }
+    ]
+  }
+]
