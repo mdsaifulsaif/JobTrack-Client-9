@@ -10,7 +10,6 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Navbar = () => {
   const { user, LogOutUser } = use(AuthContext);
-  console.log(user);
 
   const [clickIcon, setClickIcon] = useState(false);
   const handleMenuIcon = () => {
@@ -39,19 +38,20 @@ const Navbar = () => {
         {user ? (
           <img
             className="w-[50px] h-[50px] rounded-full border-2 border-blue-700 "
-            src={profile}
+            src={user.photoURL && user.photoURL}
             alt=""
           />
         ) : (
           <FaUserCircle size={30} />
         )}
 
-        <button
+        <Link
+          to="/auth/login"
           onClick={handleLogout}
           className=" px-5 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition"
         >
           {user ? "LogOut" : "Login"}
-        </button>
+        </Link>
       </div>
     </>
   );

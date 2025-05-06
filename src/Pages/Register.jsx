@@ -3,15 +3,23 @@ import { Link } from "react-router";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 function Register() {
-  const { crateUser } = use(AuthContext);
+  const { crateUser, updateUser, setUser } = use(AuthContext);
   const handleRegister = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
+    const photorul = e.target.photourl.value;
     crateUser(email, password)
       .then((res) => {
-        console.log(res);
+        const user = res.user;
+        updateUser({ displayName: name, photoURL: photorul })
+          .then((res) => {
+            setUser({ ...user, displayName: name, photoURL: photorul });
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       })
       .catch((error) => {
         console.log(error);
@@ -32,6 +40,14 @@ function Register() {
                 type="text"
                 className="input"
                 placeholder="Name"
+              />
+              {/* name  */}
+              <label className="label">Photo URL</label>
+              <input
+                name="photourl"
+                type="text"
+                className="input"
+                placeholder="Photo URl"
               />
               {/* email  */}
               <label className="label">Email</label>
