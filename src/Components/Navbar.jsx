@@ -1,38 +1,58 @@
 // Navbar.jsx
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import { FaBarsStaggered } from "react-icons/fa6";
 import { IoClose } from "react-icons/io5";
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
+import { FaUserCircle } from "react-icons/fa";
+
+import profile from "../assets/banner2.png";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Navbar = () => {
+  const { user, LogOutUser } = use(AuthContext);
+  console.log(user);
+
   const [clickIcon, setClickIcon] = useState(false);
   const handleMenuIcon = () => {
     setClickIcon(!clickIcon);
-    console.log(clickIcon);
+  };
+
+  const handleLogout = () => {
+    LogOutUser()
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const menuItem = (
     <>
       {/* Desktop Menu */}
 
-      <a href="#" className="text-gray-700 hover:text-blue-600 transition">
-        Home
-      </a>
-      <a href="#" className="text-gray-700 hover:text-blue-600 transition">
-        About
-      </a>
-      <a href="#" className="text-gray-700 hover:text-blue-600 transition">
-        Services
-      </a>
-      <a href="#" className="text-gray-700 hover:text-blue-600 transition">
-        Contact
-      </a>
-      <Link
-        to="/auth/login"
-        className=" px-5 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition"
-      >
-        Login
-      </Link>
+      <NavLink to="/">Home</NavLink>
+      <NavLink to="/company/:id">About</NavLink>
+      <NavLink to="/myprofile">My Profile</NavLink>
+
+      <div className="flex items-center justify-center gap-3 cursor-pointer">
+        {user ? (
+          <img
+            className="w-[50px] h-[50px] rounded-full border-2 border-blue-700 "
+            src={profile}
+            alt=""
+          />
+        ) : (
+          <FaUserCircle size={30} />
+        )}
+
+        <button
+          onClick={handleLogout}
+          className=" px-5 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition"
+        >
+          {user ? "LogOut" : "Login"}
+        </button>
+      </div>
     </>
   );
 
@@ -40,6 +60,7 @@ const Navbar = () => {
     <nav className="w-full bg-gray-200 mb-4 shadow-md relative">
       <div className="max-w-7xl mx-auto  md:px-12 flex items-center justify-between h-16">
         {/* Logo */}
+
         <div className="text-2xl font-bold text-blue-600">MyLogo</div>
 
         {/* Desktop Menu */}

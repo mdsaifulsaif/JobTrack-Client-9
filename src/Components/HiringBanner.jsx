@@ -18,7 +18,7 @@ function HiringBanner() {
         <p className="text-gray-500 text-sm uppercase font-semibold tracking-wider">
           We Are
         </p>
-        <h1 className="text-4xl font-bold text-blue-900">HIRING</h1>
+        <h1 className="text-4xl font-bold text-blue-700">HIRING</h1>
         <p className="mt-2 text-gray-600 text-lg">
           Let’s <span className="font-semibold text-black">Work Together</span>{" "}
           &amp;{" "}

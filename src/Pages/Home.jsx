@@ -12,17 +12,9 @@ function Home() {
   const companies = useLoaderData();
   return (
     <div className="w-11/12 mx-auto">
-      <header>
-        <Navbar></Navbar>
-        <Hero></Hero>
-      </header>
-      <main>
-        <HiringBanner></HiringBanner>
-        <CompaniesSection companies={companies}></CompaniesSection>
-      </main>
-      <footer>
-        <Footer></Footer>
-      </footer>
+      <Hero></Hero>
+      <HiringBanner></HiringBanner>
+      <CompaniesSection companies={companies}></CompaniesSection>
     </div>
   );
 }

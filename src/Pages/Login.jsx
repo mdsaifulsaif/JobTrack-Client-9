@@ -1,9 +1,22 @@
 import React, { use } from "react";
 import { Link, Navigate, useLocation, useNavigate } from "react-router";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 function Login() {
+  const navigate = useNavigate();
+  const { LoginUser } = use(AuthContext);
   const handleLogin = (e) => {
-    e.preventDefualt();
+    e.preventDefault();
+
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    LoginUser(email, password)
+      .then((res) => {
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (

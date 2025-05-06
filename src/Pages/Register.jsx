@@ -1,10 +1,21 @@
 import React, { use } from "react";
 import { Link } from "react-router";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 function Register() {
+  const { crateUser } = use(AuthContext);
   const handleRegister = (e) => {
     e.preventDefault();
-    console.log("click");
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    crateUser(email, password)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -41,7 +52,7 @@ function Register() {
               <div>
                 <a className="link link-hover">Forgot password?</a>
               </div>
-              <button type="submit" className="btn bg-blue-700 mt-4">
+              <button type="submit" className="btn text-white bg-blue-700 mt-4">
                 Register
               </button>
 
