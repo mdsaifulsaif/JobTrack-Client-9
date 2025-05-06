@@ -10,16 +10,15 @@ import {
 import { FiX } from "react-icons/fi";
 import { HiSpeakerphone } from "react-icons/hi";
 
-const Job = ({ jobdata }) => {
-  console.log(jobdata);
+const Job = ({ jobdata, weblink }) => {
   const [modalData, setModalData] = useState(null);
   const handleModal = (modaldata) => {
     setModalData(modaldata);
   };
   return (
     <>
-      <div className="w-9/12 mx-auto p-4">
-        <div className="bg-white  border border-blue-500  rounded-md flex flex-col md:flex-row justify-between items-center p-4 relative overflow-hidden transition duration-300 hover:border-blue-500 hover:shadow-lg group">
+      <div className="md:w-9/12 mx-auto p-4">
+        <div className="bg-white  border border-blue-500  rounded-md flex flex-col md:flex-row justify-between  items-center p-4 relative overflow-hidden transition duration-300 hover:border-blue-500 hover:shadow-lg group">
           {/* Left section */}
           <div className="flex flex-col md:flex-row  items-center gap-4">
             {/* Logo */}
@@ -32,7 +31,7 @@ const Job = ({ jobdata }) => {
             </div>
 
             {/* Job Info */}
-            <div>
+            <div className="">
               <span className="inline-block px-3 py-1 text-sm bg-green-100 text-green-600 rounded-full font-medium mb-1">
                 <FiBriefcase className="inline mr-1" />
                 {jobdata.jobType}
@@ -89,9 +88,20 @@ const Job = ({ jobdata }) => {
               ))}
             </ul>
 
+            <div className="flex flex-col gap-3">
+              <span className="flex items-center text-sm bg-gray-100 px-3 py-1 rounded-md text-gray-700">
+                <FiDollarSign className="mr-1" />
+                salary {jobdata.salary}
+              </span>
+              <span className="flex items-center text-sm bg-gray-100 px-3 py-1 rounded-md text-gray-700">
+                <FiDollarSign className="mr-1" />
+                Location {jobdata.location}
+              </span>
+            </div>
+
             <div className="flex justify-end gap-3">
               <a
-                href=""
+                href={weblink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"

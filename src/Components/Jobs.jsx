@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData } from "react-router";
 import Job from "./Job";
 
-function Jobs() {
-  const data = useLoaderData();
+function Jobs({ filterJob }) {
+  const weblink = filterJob.map((j) => j.website);
 
   // console.log(jobsData.name);
 
@@ -21,9 +21,9 @@ function Jobs() {
       </div>
 
       <div className="grid  md:grid-cols-1 ">
-        {data.map((jobc) =>
+        {filterJob.map((jobc) =>
           jobc.jobs.map((jobdata) => (
-            <Job key={jobdata.id} jobdata={jobdata}></Job>
+            <Job key={jobdata.id} jobdata={jobdata} weblink={weblink}></Job>
           ))
         )}
       </div>

@@ -6,6 +6,7 @@ import HiringBanner from "../Components/HiringBanner";
 import CompaniesSection from "../Components/CompaniesSection";
 import { useLoaderData } from "react-router";
 import Jobs from "../Components/Jobs";
+import Jobcard from "../Components/Jobcard";
 
 function Home() {
   const companies = useLoaderData();
@@ -18,7 +19,6 @@ function Home() {
       <main>
         <HiringBanner></HiringBanner>
         <CompaniesSection companies={companies}></CompaniesSection>
-        <Jobs></Jobs>
       </main>
       <footer>
         <Footer></Footer>
