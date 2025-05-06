@@ -1,9 +1,13 @@
 import React, { use } from "react";
 import { Link } from "react-router";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import { useNavigate } from "react-router";
+import { useState } from "react";
 
 function Register() {
   const { crateUser, updateUser, setUser } = use(AuthContext);
+  const navigate = useNavigate();
+  const [errorMassage, setErrorMassage] = useState();
   const handleRegister = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -16,19 +20,22 @@ function Register() {
         updateUser({ displayName: name, photoURL: photorul })
           .then((res) => {
             setUser({ ...user, displayName: name, photoURL: photorul });
+            navigate("/");
           })
           .catch((error) => {
-            console.log(error);
+            const errorM = error.message;
+            setErrorMassage(errorM);
           });
       })
       .catch((error) => {
-        console.log(error);
+        const errorM = error.message;
+        setErrorMassage(errorM);
       });
   };
 
   return (
     <div className="">
-      <div className="flex  items-center justify-center h-screen">
+      <div className="flex my-5  items-center justify-center h-screen">
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
           <div className="card-body">
             <h1 className="text-3xl font-bold">Register Now!</h1>
@@ -78,6 +85,7 @@ function Register() {
                   Login
                 </Link>
               </p>
+              <p className="text-red-700 py-5">{errorMassage}</p>
             </form>
           </div>
         </div>

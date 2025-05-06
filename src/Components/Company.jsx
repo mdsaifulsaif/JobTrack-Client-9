@@ -2,15 +2,6 @@ import React from "react";
 import { FaMapMarkerAlt, FaGlobe, FaIndustry } from "react-icons/fa";
 
 const Company = ({ comp }) => {
-  //   const company = {
-  //     id: "4",
-  //     name: "NextGen AI",
-  //     logo: "https://example.com/logos/nextgenai.png",
-  //     location: "Boston, MA",
-  //     website: "https://nextgenai.io",
-  //     industry: "Artificial Intelligence",
-  //   };
-
   return (
     <div className=" w-11/12 mx-auto bg-white shadow-lg rounded-2xl p-6 flex flex-col items-center space-y-4">
       <img

@@ -1,8 +1,10 @@
 import React, { use } from "react";
 import { Link, Navigate, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import { useState } from "react";
 
 function Login() {
+  const [errorMassage, setErrorMassage] = useState();
   const navigate = useNavigate();
   const { LoginUser } = use(AuthContext);
   const handleLogin = (e) => {
@@ -15,7 +17,8 @@ function Login() {
         navigate("/");
       })
       .catch((error) => {
-        console.log(error);
+        const errorM = error.message;
+        setErrorMassage(errorM);
       });
   };
 
@@ -53,6 +56,7 @@ function Login() {
                 Register
               </Link>
             </p>
+            <p className="text-red-700 ">{errorMassage}</p>
           </form>
         </div>
       </div>

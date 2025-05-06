@@ -11,18 +11,18 @@ import { useState } from "react";
 import { useEffect } from "react";
 export const AuthContext = createContext();
 function AuthProvider({ children }) {
+  const [lodding, setLodding] = useState(true);
   const [user, setUser] = useState(null);
-  const [userLodding, setUserLodding] = useState(true);
 
   // create user
   const crateUser = (email, password) => {
-    setUserLodding(true);
+    setLodding(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   // Login user
   const LoginUser = (email, password) => {
-    setUserLodding(true);
+    setLodding(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
@@ -33,14 +33,14 @@ function AuthProvider({ children }) {
 
   //update User
   const updateUser = (updateInfo) => {
-    setUserLodding(true);
+    setLodding(true);
     return updateProfile(auth.currentUser, updateInfo);
   };
   //current user
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      setUserLodding(fasle);
+      setLodding(false);
     });
 
     return () => {
@@ -54,6 +54,8 @@ function AuthProvider({ children }) {
     LoginUser,
     LogOutUser,
     updateUser,
+    setLodding,
+    lodding,
   };
   return <AuthContext value={AuthData}>{children}</AuthContext>;
 }

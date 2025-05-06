@@ -6,6 +6,8 @@ import Login from "../Pages/Login";
 import CompanyDetailsPage from "../Pages/CompanyDetailsPage";
 import Root from "../Pages/Root";
 import UserProfile from "../Pages/UserProfile";
+import PrivetRoute from "../PrivetRoute/PrivetRoute";
+import NotFoundPage from "../Pages/NotFoundPage";
 
 export const router = createBrowserRouter([
   {
@@ -23,18 +25,38 @@ export const router = createBrowserRouter([
         loader: () => fetch("/jobs.json"),
         Component: CompanyDetailsPage,
       },
+      {
+        path: "auth/register",
+        Component: Register,
+      },
+      {
+        path: "auth/login",
+        Component: Login,
+      },
+      {
+        path: "myprofile",
+        element: (
+          <PrivetRoute>
+            <UserProfile></UserProfile>
+          </PrivetRoute>
+        ),
+      },
     ],
   },
   {
-    path: "auth/register",
-    Component: Register,
+    path: "*",
+    Component: NotFoundPage,
   },
-  {
-    path: "auth/login",
-    Component: Login,
-  },
-  {
-    path: "myprofile",
-    Component: UserProfile,
-  },
+  // {
+  //   path: "auth/register",
+  //   Component: Register,
+  // },
+  // {
+  //   path: "auth/login",
+  //   Component: Login,
+  // },
+  // {
+  //   path: "myprofile",
+  //   Component: UserProfile,
+  // },
 ]);

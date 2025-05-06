@@ -31,19 +31,21 @@ const Navbar = () => {
       {/* Desktop Menu */}
 
       <NavLink to="/">Home</NavLink>
-      <NavLink to="/company/:id">About</NavLink>
+      <NavLink to="/about">About</NavLink>
       <NavLink to="/myprofile">My Profile</NavLink>
 
       <div className="flex items-center justify-center gap-3 cursor-pointer">
-        {user ? (
-          <img
-            className="w-[50px] h-[50px] rounded-full border-2 border-blue-700 "
-            src={user.photoURL && user.photoURL}
-            alt=""
-          />
-        ) : (
-          <FaUserCircle size={30} />
-        )}
+        <Link to="/myprofile">
+          {user ? (
+            <img
+              className="w-[50px] h-[50px] rounded-full border-2 border-blue-700 "
+              src={user.photoURL && user.photoURL}
+              alt=""
+            />
+          ) : (
+            <FaUserCircle size={30} />
+          )}
+        </Link>
 
         <Link
           to="/auth/login"
@@ -58,10 +60,12 @@ const Navbar = () => {
 
   return (
     <nav className="w-full bg-gray-200 mb-4 shadow-md relative">
-      <div className="max-w-7xl mx-auto  md:px-12 flex items-center justify-between h-16">
+      <div className="max-w-7xl mx-auto px-5  md:px-12 flex items-center justify-between h-16">
         {/* Logo */}
 
-        <div className="text-2xl font-bold text-blue-600">MyLogo</div>
+        <div className="text-2xl font-bold text-blue-600">
+          <Link to="/">Job House</Link>
+        </div>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-8">{menuItem}</div>
