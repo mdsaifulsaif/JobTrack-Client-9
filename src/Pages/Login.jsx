@@ -2,6 +2,7 @@ import React, { use } from "react";
 import { Link, Navigate, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 function Login() {
   const [errorMassage, setErrorMassage] = useState();
@@ -26,6 +27,9 @@ function Login() {
     <div className="flex items-center justify-center h-screen">
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
         <div className="card-body">
+          <Helmet>
+            <title>Job House | Login</title>
+          </Helmet>
           <h1 className="text-3xl font-bold">Login now!</h1>
           <form onSubmit={handleLogin} className="fieldset">
             <label className="label">Email</label>

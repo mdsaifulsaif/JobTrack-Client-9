@@ -1,8 +1,22 @@
 // HeroSection.jsx
 import React from "react";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
 import logo from "../assets/banner1.png";
 import HiringBanner from "./HiringBanner";
 const Hero = () => {
+  const bannerRef = useRef(null);
+
+  useEffect(() => {
+    gsap.to(bannerRef.current, {
+      y: -20,
+      duration: 1,
+      yoyo: true,
+      repeat: -1,
+      ease: "power1.inOut",
+    });
+  }, []);
+
   return (
     <section className="flex flex-col-reverse md:flex-row items-center justify-between  py-4 bg-white">
       <div className="md:w-1/2 text-center md:text-left">
@@ -20,6 +34,7 @@ const Hero = () => {
       </div>
       <div className="md:w-2/5 mb-8 md:mb-0">
         <img
+          ref={bannerRef}
           src={logo}
           alt="Hero"
           className="w-full h-auto rounded-xl shadow-lg"

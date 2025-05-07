@@ -3,6 +3,7 @@ import { Link } from "react-router";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { useNavigate } from "react-router";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 function Register() {
   const { crateUser, updateUser, setUser } = use(AuthContext);
@@ -17,15 +18,16 @@ function Register() {
     crateUser(email, password)
       .then((res) => {
         const user = res.user;
-        updateUser({ displayName: name, photoURL: photorul })
-          .then((res) => {
-            setUser({ ...user, displayName: name, photoURL: photorul });
-            navigate("/");
-          })
-          .catch((error) => {
-            const errorM = error.message;
-            setErrorMassage(errorM);
-          });
+        // updateUser({ displayName: name, photoURL: photorul })
+        //   .then((res) => {
+        //     setUser({ ...user, displayName: name, photoURL: photorul });
+        //     navigate("/");
+        // })
+        // .catch((error) => {
+        //   const errorM = error.message;
+        //   setErrorMassage(errorM);
+        // });
+        navigate("/");
       })
       .catch((error) => {
         const errorM = error.message;
@@ -38,6 +40,9 @@ function Register() {
       <div className="flex my-5  items-center justify-center h-screen">
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
           <div className="card-body">
+            <Helmet>
+              <title>Job House | Register</title>
+            </Helmet>
             <h1 className="text-3xl font-bold">Register Now!</h1>
             <form onSubmit={handleRegister} className="fieldset">
               {/* name  */}

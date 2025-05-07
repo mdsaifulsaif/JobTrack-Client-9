@@ -10,9 +10,7 @@ function Jobs({ filterJob }) {
   return (
     <section className="py-5">
       <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold text-gray-800">
-          Explore Top Tech Companies
-        </h1>
+        <h1 className="text-3xl font-bold text-gray-800">Explore Our Jobs</h1>
         <p className="mt-2 text-gray-600 max-w-xl mx-auto">
           Discover leading companies in the tech industry. Click on any logo to
           view more details about their mission, open positions, and work

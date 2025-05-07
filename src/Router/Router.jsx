@@ -8,6 +8,7 @@ import Root from "../Pages/Root";
 import UserProfile from "../Pages/UserProfile";
 import PrivetRoute from "../PrivetRoute/PrivetRoute";
 import NotFoundPage from "../Pages/NotFoundPage";
+import UpdateProfile from "../Pages/UpdateProfile";
 
 export const router = createBrowserRouter([
   {
@@ -38,6 +39,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivetRoute>
             <UserProfile></UserProfile>
+          </PrivetRoute>
+        ),
+      },
+      {
+        path: "update-user",
+        element: (
+          <PrivetRoute>
+            <UpdateProfile></UpdateProfile>
           </PrivetRoute>
         ),
       },

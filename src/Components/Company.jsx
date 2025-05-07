@@ -18,17 +18,6 @@ const Company = ({ comp }) => {
         <FaIndustry />
         <span>{comp.industry}</span>
       </div>
-      {/* <div className="text-blue-600 flex items-center gap-2">
-        <FaGlobe />
-        <a
-          href={comp.website}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:underline"
-        >
-          Visit Website
-        </a>
-      </div> */}
     </div>
   );
 };
