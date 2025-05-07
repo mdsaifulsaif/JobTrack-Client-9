@@ -18,12 +18,8 @@ const Navbar = () => {
 
   const handleLogout = () => {
     LogOutUser()
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+      .then((res) => {})
+      .catch((error) => {});
   };
 
   const menuItem = (
@@ -71,7 +67,7 @@ const Navbar = () => {
         <div className="hidden md:flex items-center space-x-8">{menuItem}</div>
         {/* mobile Menu */}
         <div
-          className={`w-full absolute ${
+          className={`w-full z-20 absolute ${
             clickIcon ? "top-15" : "-top-100"
           }   items-center left-0 md:hidden flex flex-col py-5  gap-3 bg-gray-200 transition-all`}
         >

@@ -6,8 +6,6 @@ import LoaddingSpinner from "../../../Dragon News/Dragon News/src/Components/Loa
 function PrivetRoute({ children }) {
   const { user, lodding } = use(AuthContext);
 
-  console.log(lodding, user);
-
   if (lodding) {
     return <LoaddingSpinner></LoaddingSpinner>;
   }

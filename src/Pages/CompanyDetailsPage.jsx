@@ -15,7 +15,7 @@ function CompanyDetailsPage() {
       <Helmet>
         <title>Job House | Company details</title>
       </Helmet>
-      <div>
+      <div className="my-5">
         {filterJob.map((comp) => (
           <Company key={comp.id} comp={comp}></Company>
         ))}
