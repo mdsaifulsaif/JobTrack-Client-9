@@ -15,8 +15,6 @@ function UpdateProfile() {
     updateUser({ displayName: name, photoURL: photourl })
       .then((res) => {
         setUser({ ...user, displayName: name, photoURL: photourl });
-        navigate("/myprofile");
-        alert("user updated");
       })
       .catch((error) => {
         const errorM = error.message;

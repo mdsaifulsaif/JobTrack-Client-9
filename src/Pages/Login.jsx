@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React, { useContext, useRef } from "react";
 import { Link, Navigate, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { useState } from "react";
@@ -7,7 +7,8 @@ import { Helmet } from "react-helmet-async";
 function Login() {
   const [errorMassage, setErrorMassage] = useState();
   const navigate = useNavigate();
-  const { LoginUser, googleLogin } = use(AuthContext);
+  const emailref = useRef();
+  const { LoginUser, googleLogin, setNewPssword } = useContext(AuthContext);
   const handleLogin = (e) => {
     e.preventDefault();
 
@@ -35,6 +36,17 @@ function Login() {
       });
   };
 
+  const handleNewpassword = () => {
+    const userEmail = emailref.current.value;
+    setNewPssword(userEmail)
+      .then(() => {
+        alert("A password reset is sent, Please cheak your email");
+      })
+      .catch((error) => {
+        const errorM = error.message;
+        setErrorMassage(errorM);
+      });
+  };
   return (
     <div className="flex items-center justify-center h-screen">
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
@@ -50,6 +62,7 @@ function Login() {
               name="email"
               className="input"
               placeholder="Email"
+              ref={emailref}
             />
             <label className="label">Password</label>
             <input
@@ -58,7 +71,7 @@ function Login() {
               className="input"
               placeholder="Password"
             />
-            <div>
+            <div onClick={handleNewpassword}>
               <a className="link link-hover">Forgot password?</a>
             </div>
 

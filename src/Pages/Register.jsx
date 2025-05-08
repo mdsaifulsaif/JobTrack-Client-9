@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React, { use, useRef } from "react";
 import { Link } from "react-router";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { useNavigate } from "react-router";
@@ -9,12 +9,21 @@ function Register() {
   const { crateUser, updateUser, setUser, googleLogin } = use(AuthContext);
   const navigate = useNavigate();
   const [errorMassage, setErrorMassage] = useState();
+  const emailref = useRef();
   const handleRegister = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
     const photorul = e.target.photourl.value;
+    const regex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+
+    if (regex.test(password) == false) {
+      setErrorMassage(
+        "Password must be 6+ chars with uppercase & lowercase letters."
+      );
+      return;
+    }
     crateUser(email, password)
       .then((res) => {
         const user = res.user;
@@ -40,7 +49,6 @@ function Register() {
   const handleGoogleLogin = () => {
     googleLogin()
       .then((res) => {
-        console.log(res);
         navigate("/");
       })
       .catch((error) => {
@@ -78,6 +86,7 @@ function Register() {
               {/* email  */}
               <label className="label">Email</label>
               <input
+                ref={emailref}
                 name="email"
                 type="email"
                 className="input"
@@ -91,9 +100,7 @@ function Register() {
                 className="input"
                 placeholder="Password"
               />
-              <div>
-                <a className="link link-hover">Forgot password?</a>
-              </div>
+
               <button type="submit" className="btn text-white bg-blue-700 mt-4">
                 Register
               </button>

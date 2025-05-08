@@ -6,6 +6,7 @@ import {
   updateProfile,
   signInWithPopup,
   GoogleAuthProvider,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 import React, { createContext } from "react";
 import { auth } from "./../firebase";
@@ -36,7 +37,7 @@ function AuthProvider({ children }) {
 
   //update User
   const updateUser = (updateInfo) => {
-    setLodding(true);
+    setLodding(false);
     return updateProfile(auth.currentUser, updateInfo);
   };
 
@@ -45,6 +46,7 @@ function AuthProvider({ children }) {
   const googleLogin = () => {
     return signInWithPopup(auth, provider);
   };
+
   //current user
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -56,6 +58,13 @@ function AuthProvider({ children }) {
       unSubscribe();
     };
   }, []);
+
+  // set New password
+
+  const setNewPssword = (email) => {
+    return sendPasswordResetEmail(auth, email);
+  };
+
   const AuthData = {
     user,
     setUser,
@@ -66,6 +75,7 @@ function AuthProvider({ children }) {
     setLodding,
     lodding,
     googleLogin,
+    setNewPssword,
   };
   return <AuthContext value={AuthData}>{children}</AuthContext>;
 }
