@@ -3,21 +3,65 @@ import { use } from "react";
 import { FaUserCircle, FaEnvelope } from "react-icons/fa";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 
 const UserProfile = () => {
   const { user, updateUser } = use(AuthContext);
   const { email, photoURL, displayName } = user;
-  // console.log(user.email);
+  const location = useLocation();
+
+  const handleUpdateProfile = (e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const photourl = e.target.photourl.value;
+
+    updateUser({ displayName: name, photoURL: photourl })
+      .then(() => {
+        setUser({ ...user, displayName: name, photoURL: photourl });
+      })
+      .catch((error) => {
+        const errorM = error.message;
+        setUser(user);
+      });
+  };
 
   return (
-    <div className="flex items-center justify-center h-screen">
-      <Helmet>
-        <title>Job House | Profile </title>
-      </Helmet>
+    <div className="flex items-center mx-auto justify-evenly h-screen">
+      <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+        <Helmet>
+          <title>Job House | Profile</title>
+        </Helmet>
+        <div className="card-body">
+          <h1 className="text-3xl font-bold">Update Profile</h1>
+          <form onSubmit={handleUpdateProfile} className="fieldset">
+            <label className="label">Name</label>
+            <input
+              required
+              type="text"
+              name="name"
+              className="input"
+              placeholder="Name"
+            />
+            <label className="label">Photo URL</label>
+            <input
+              required
+              type="text"
+              name="photourl"
+              className="input"
+              placeholder="Photo URL"
+            />
+
+            <button type="submit" className="btn bg-blue-700 text-white mt-4">
+              Update
+            </button>
+
+            <p className="text-red-700 "></p>
+          </form>
+        </div>
+      </div>
 
       {/* user info  */}
-      <div className="w-xl mx-auto  bg-white rounded-2xl shadow-md p-6 text-center border border-blue-700">
+      <div className="w-gl  bg-white rounded-2xl shadow-md p-6 text-center border border-blue-700">
         <img
           src={photoURL}
           alt="Profile"
@@ -30,12 +74,6 @@ const UserProfile = () => {
           <FaEnvelope className="text-blue-700" />
           <span>{email && email}</span>
         </div>
-        <Link
-          className="bg-blue-700 px-3 py-2 rounded-sm text-white mt-5"
-          to="/update-user"
-        >
-          Update Profile
-        </Link>
       </div>
     </div>
   );

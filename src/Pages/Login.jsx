@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 
 function Login() {
+  const location = useLocation();
   const [errorMassage, setErrorMassage] = useState();
   const navigate = useNavigate();
   const emailref = useRef();
@@ -16,7 +17,7 @@ function Login() {
     const password = e.target.password.value;
     LoginUser(email, password)
       .then((res) => {
-        navigate("/");
+        navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((error) => {
         const errorM = error.message;
@@ -27,8 +28,7 @@ function Login() {
   const handleGoogleLogin = () => {
     googleLogin()
       .then((res) => {
-        console.log(res);
-        navigate("/");
+        navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((error) => {
         const errorM = error.message;

@@ -10,6 +10,7 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Navbar = () => {
   const { user, LogOutUser } = use(AuthContext);
+  // console.log(user.photoURL);
 
   const [clickIcon, setClickIcon] = useState(false);
   const handleMenuIcon = () => {
