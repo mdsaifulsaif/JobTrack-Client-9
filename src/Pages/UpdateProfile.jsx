@@ -33,7 +33,7 @@ function UpdateProfile() {
           </Helmet>
           <h1 className="text-3xl font-bold">Update Profile</h1>
           <form onSubmit={handleUpdateProfile} className="fieldset">
-            <label className="label">Email</label>
+            <label className="label">Name</label>
             <input
               type="text"
               name="name"
